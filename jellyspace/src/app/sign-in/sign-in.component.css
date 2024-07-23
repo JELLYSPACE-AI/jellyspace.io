@@ -1,3 +1,70 @@
-.w-100 {
-    text-align: center;
+/* Container padding and background */
+.ftco-section {
+  padding: 4rem 0;
+  background-color: #f5f5f5;
+}
+
+/* Login wrap styling */
+.login-wrap {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form and input styles */
+.wrap {
+  padding: 2rem;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.input-group-text {
+  background-color: #e9ecef;
+}
+
+.form-check-label {
+  margin-bottom: 0;
+}
+
+.btn-primary {
+  background-color: #4caf50;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  padding: 0.75rem;
+  font-size: 1rem;
+}
+
+.btn-outline-secondary {
+  border-color: #4caf50;
+  color: #4caf50;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+/* Social login buttons */
+.social-login .btn {
+  font-size: 0.875rem;
+  padding: 0.75rem;
+}
+
+.social-login .btn:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .wrap {
+    padding: 1.5rem;
+  }
+
+  .btn-primary,
+  .social-login .btn {
+    width: 100%;
+  }
 }
