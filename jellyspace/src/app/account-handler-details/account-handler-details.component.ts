@@ -16,6 +16,9 @@ export class AccountHandlerDetailsComponent implements OnInit {
   imgShow: boolean = true;
   uploading: boolean = false; // New flag to track upload status
 
+  // Declare the repeatPWord property
+  repeatPWord: string = '';
+
   constructor(
     private service: AppService,
     private router: Router,
@@ -114,6 +117,12 @@ export class AccountHandlerDetailsComponent implements OnInit {
 
     if (!this.fileData) {
       console.error('No file selected');
+      return;
+    }
+
+    // Validate password and repeat password match
+    if (this.pWord !== this.repeatPWord) {
+      alert('Passwords do not match.');
       return;
     }
 

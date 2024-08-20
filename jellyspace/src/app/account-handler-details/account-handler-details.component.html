@@ -117,33 +117,57 @@
                 </div>
               </div>
             </div>
-            <div class="col-6 m-0 p-0">
-              <label class="control-label pl-3 font-style-family" for="password"
-                >Password</label
-              ><span style="color: red">*</span>
-              <div class="input-group">
-                <input
-                  [type]="fieldTextType ? 'text' : 'password'"
-                  [ngModelOptions]="{ standalone: true }"
-                  class="form-control font-style-family"
-                  [(ngModel)]="pWord"
-                  placeholder="Password"
-                />
-                <span
-                  class="input-group-text"
-                  id="basic-addon1"
-                  (click)="toggleFieldTextType()"
+            <div class="row m-0 p-0">
+              <div class="col-6 m-0 p-0">
+                <label
+                  class="control-label pl-3 font-style-family"
+                  for="password"
                 >
-                  <i
-                    class="fa"
-                    [ngClass]="{
-                      'fa-eye-slash': !fieldTextType,
-                      'fa-eye': fieldTextType
-                    }"
-                  ></i>
-                </span>
+                  Password <sup class="mandatory-color">*</sup>
+                </label>
+                <div class="input-group">
+                  <input
+                    [type]="fieldTextType ? 'text' : 'password'"
+                    [ngModelOptions]="{ standalone: true }"
+                    class="form-control font-style-family"
+                    [(ngModel)]="pWord"
+                    placeholder="Password"
+                  />
+                  <span
+                    class="input-group-text"
+                    id="basic-addon1"
+                    (click)="toggleFieldTextType()"
+                  >
+                    <i
+                      class="fa"
+                      [ngClass]="{
+                        'fa-eye-slash': !fieldTextType,
+                        'fa-eye': fieldTextType
+                      }"
+                    ></i>
+                  </span>
+                </div>
+              </div>
+              <div class="col-6 m-0 p-0">
+                <label
+                  class="control-label pl-3 font-style-family"
+                  for="repeatPassword"
+                >
+                  Repeat Password <sup class="mandatory-color">*</sup>
+                </label>
+                <div class="col-sm-12">
+                  <input
+                    type="password"
+                    [ngModelOptions]="{ standalone: true }"
+                    [(ngModel)]="repeatPWord"
+                    class="form-control font-style-family"
+                    id="repeatPassword"
+                    placeholder="Repeat Password"
+                  />
+                </div>
               </div>
             </div>
+
             <div class="col-6 m-0 p-0">
               <label class="control-label pl-3 font-style-family" for="file"
                 >Upload Company Image / Profile Image</label
@@ -341,7 +365,14 @@
           <button
             type="submit"
             [disabled]="
-              !fName || !lName || !eMail || !mobileNo || !title || !pWord
+              !fName ||
+              !lName ||
+              !eMail ||
+              !mobileNo ||
+              !title ||
+              !pWord ||
+              !repeatPWord ||
+              pWord !== repeatPWord
             "
             class="btn btn-primary rounded-sm ms-3 font-style-family"
             (click)="nextClick()"
