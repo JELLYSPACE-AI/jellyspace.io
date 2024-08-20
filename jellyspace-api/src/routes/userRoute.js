@@ -3,60 +3,61 @@ const router = express.Router();
 const User = require("../models/user");
 
 router.post("/user", async (req, res) => {
-  const user = await User.findOne({ "email": req.body.email });
+  const user = await User.findOne({ email: req.body.email });
   if (user) {
     return res.json({
       status: false,
-      message: 'User already registered',
-      data: ''
+      message: "User already registered",
+      data: "",
     });
   } else {
     return res.json({
       status: true,
-      message: '',
-      data: ''
+      message: "",
+      data: "",
     });
   }
 });
 
 router.post("/login", async (req, res) => {
   try {
-    const user = await User.findOne({ "email": req.body.email, "password": req.body.password });
+    const user = await User.findOne({
+      email: req.body.email,
+      password: req.body.password,
+    });
     if (user) {
       return res.json({
         status: true,
-        message: 'User loggedIn Successfully',
-        data: user
+        message: "User logged in successfully",
+        data: user,
       });
     } else {
       return res.json({
         status: false,
-        message: 'login failed',
-        data: ''
+        message: "Please check your Email or Password",
+        data: "",
       });
     }
   } catch (error) {
-    console.log('error' + JSON.stringify(err));
+    console.log("error" + JSON.stringify(error));
     return res.json({
       status: false,
-      message: 'login failed',
-      data: ''
+      message: "An error occurred",
+      data: "",
     });
   }
-
 });
 
 router.post("/register", async (req, res) => {
   try {
-    const user = await User.findOne({ "email": req.body.email });
+    const user = await User.findOne({ email: req.body.email });
     if (user) {
       return res.json({
         status: false,
-        message: 'User already registered',
-        data: ''
+        message: "User already registered",
+        data: "",
       });
-    }
-    else {
+    } else {
       const userRegistration = new User({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -73,23 +74,23 @@ router.post("/register", async (req, res) => {
         h_number: req.body.h_number,
         city: req.body.city,
         postalCode: req.body.postalCode,
-        country: req.body.country
+        country: req.body.country,
       });
 
       await userRegistration.save();
 
       return res.json({
         status: true,
-        message: 'Successfully registered',
-        data: userRegistration
+        message: "Successfully registered",
+        data: userRegistration,
       });
     }
   } catch (err) {
-    console.log('error' + JSON.stringify(err));
+    console.log("error" + JSON.stringify(err));
     return res.json({
       status: false,
-      message: 'Registration failed',
-      data: ''
+      message: "Registration failed",
+      data: "",
     });
   }
 });
@@ -99,88 +100,57 @@ router.get("/users", async (req, res) => {
   if (users) {
     return res.json({
       status: true,
-      message: 'Users List',
-      data: users
+      message: "Users List",
+      data: users,
     });
   } else {
     return res.json({
       status: false,
-      message: 'Data not available',
-      data: ''
+      message: "Data not available",
+      data: "",
     });
   }
 });
 
 router.post("/loginUser", async (req, res) => {
-  const user = await User.findOne({ "email": req.body.email });
+  const user = await User.findOne({ email: req.body.email });
   if (user) {
     return res.json({
       status: true,
-      message: '',
-      data:user
+      message: "",
+      data: user,
     });
-    
   } else {
     return res.json({
       status: false,
-      message: 'User not available',
-      data: ''
+      message: "User not available",
+      data: "",
     });
   }
 });
 
 router.post("/deleteUser", async (req, res) => {
-  const user = await User.findOne({ "email": req.body.email });
+  const user = await User.findOne({ email: req.body.email });
   if (user) {
     await User.deleteOne(user._id);
     return res.json({
       status: true,
-      message: 'User deleted',
-      data:''
+      message: "User deleted",
+      data: "",
     });
-    
   } else {
     return res.json({
       status: false,
-      message: 'User not available',
-      data: ''
+      message: "User not available",
+      data: "",
     });
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // router.get("/posts", async (req, res) => {
 //   const posts = await Post.find();
 //   res.send(posts);
 // });
-
-
-
-
 
 // router.get("/posts/:id", async (req, res) => {
 //   try {
@@ -192,25 +162,17 @@ router.post("/deleteUser", async (req, res) => {
 //   }
 // });
 
-
-
 // router.patch("/posts/:id", async (req, res) => {
 //   try {
 //     const post = await Post.findOne({ _id: req.params.id });
-
-
 
 //     if (req.body.title) {
 //       post.title = req.body.title;
 //     }
 
-
-
 //     if (req.body.content) {
 //       post.content = req.body.content;
 //     }
-
-
 
 //     await post.save();
 //     res.send(post);
@@ -219,7 +181,5 @@ router.post("/deleteUser", async (req, res) => {
 //     res.send({ error: "Post doesn't exist!" });
 //   }
 // });
-
-
 
 module.exports = router;
