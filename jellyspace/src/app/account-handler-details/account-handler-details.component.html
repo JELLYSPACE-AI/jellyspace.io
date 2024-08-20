@@ -1,98 +1,196 @@
 <section class="w-100 m-0 p-0">
-    <div class="w-100 m-0">
-        <div class="row m-0 p-0 justify-content-center wrap" style="height: 100vh;overflow: auto;">
-            <div class="row m-0 p-0">
-                <div class="col-3 m-0 p-0"></div>
-                <div class="col-7 m-0 p-0">
-                    <div class="d-flex">
-                        <div class="w-100 m-0 p-0">
-                            <h4 class="mb-2 p-3 font-style-family" style="cursor: pointer; color: #4CAF50;font-size: 20px;font-weight: 600;">JELLYSPACE : Account Handler Details</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-2 m-0 p-0"></div>
+  <div class="w-100 m-0">
+    <div
+      class="row m-0 p-0 justify-content-center wrap"
+      style="height: 100vh; overflow: auto"
+    >
+      <div class="row m-0 p-0">
+        <div class="col-3 m-0 p-0"></div>
+        <div class="col-7 m-0 p-0">
+          <div class="d-flex">
+            <div class="w-100 m-0 p-0">
+              <h4
+                class="mb-2 p-3 font-style-family"
+                style="
+                  cursor: pointer;
+                  color: #4caf50;
+                  font-size: 20px;
+                  font-weight: 600;
+                "
+              >
+                JELLYSPACE : Account Handler Details
+              </h4>
             </div>
-            <div class="row m-0 p-0">
-                <form class="form-horizontal">
-                    <div class="row m-0 p-0">
-                        <div class="col-6 m-0 p-0">
-                            <div class="form-group">
-                                <label class="control-label pl-3 font-style-family" for="text">Title<sup class="mandatory-color">*</sup></label>
-                                <div class="col-sm-12">
-                                  <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="title" class="form-control font-style-family" placeholder="Title" id="text">
-                                </div>
-                              </div>
-                        </div>
-                        <div class="col-6 m-0 p-0">
-                            <div class="form-group">
-                                <label class="control-label pl-3 font-style-family" for="pwd">First Name <sup class="mandatory-color">*</sup></label>
-                                <div class="col-sm-12">
-                                  <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="fName" class="form-control font-style-family" id="pwd" placeholder="Enter First Name">
-                                </div>
-                              </div>
-                        </div>
-                    </div>
-                    <div class="row m-0 p-0">
-                        <div class="col-6 m-0 p-0">
-                            <div class="form-group">
-                                <label class="control-label pl-3 font-style-family" for="text">Last Name<sup class="mandatory-color">*</sup></label>
-                                <div class="col-sm-12">
-                                  <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="lName" class="form-control font-style-family" id="text" placeholder="Enter Last Name">
-                                </div>
-                              </div>
-                        </div>
-                        <div class="col-6 m-0 p-0">
-                            <div class="form-group">
-                                <label class="control-label pl-3 font-style-family" for="pwd">Telephone <sup class="mandatory-color">*</sup></label>
-                                <div class="col-sm-12">
-                                  <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="mobileNo" class="form-control font-style-family" id="pwd" placeholder="Enter Telephone Number">
-                                </div>
-                              </div>
-                        </div>
-                    </div>
-                    <div class="row m-0 p-0">
-                        <div class="col-6 m-0 p-0">
-                            <div class="form-group">
-                                <label class="control-label pl-3 font-style-family" for="email">Email <sup class="mandatory-color">*</sup></label>
-                                <div class="col-sm-12">
-                                  <input type="email" [ngModelOptions]="{standalone: true}" [(ngModel)]="eMail" class="form-control font-style-family" id="email" placeholder="Enter Email">
-                                </div>
-                              </div>
-                        </div>
-                        <div class="col-6 m-0 p-0">
-                          <label class="control-label pl-3 font-style-family" for="password">Password</label><span style="color: red;">*</span>
-                          <div class="input-group">
-                            <input [type]="fieldTextType ? 'text' : 'password'" [ngModelOptions]="{standalone: true}" class="form-control font-style-family" [(ngModel)]="pWord"
-                                placeholder="Password">
-                            <span class="input-group-text" id="basic-addon1" (click)="toggleFieldTextType()">
-                                <i class="fa"
-                                    [ngClass]="{'fa-eye-slash': !fieldTextType, 'fa-eye': fieldTextType}"></i>
-                            </span>
-                        </div>
-                      </div>
-                        <div class="col-6 m-0 p-0">
-                          <label class="control-label pl-3 font-style-family" for="file">Upload Company Image / Profile Image</label><span style="color: red;">*</span>
-                          <div class="input-group" style="width: 600px; margin-left: 13px; ">
-                            <input type="file" [ngModelOptions]="{standalone: true}" (change)="selectImage($event)" class="form-control font-style-family" [(ngModel)]="file"
-                                placeholder="Upload File Here">
-                        </div>
-                      </div>
-                        <div class="col-6 m-0 p-0">
-                          <label class="control-label pl-3 font-style-family">Is Bid Manager</label>
-                          <div class="input-group" style="display: flex;
-                          position: relative;
-                          top: 6px;
-                          left: -220px;
-                          flex-direction: row;
-                          flex-wrap: nowrap;
-                          justify-content: center;
-                          align-items: flex-start;" *ngFor="let data of managerList">
-                            <input style="display: inline-block;" type="radio" (click)="selectBidManager(data.label)" class="font-style-family" id="radio2" name="optradio" value="option2">
-                            <p class="pl-2" style="margin-top: -6px;">{{data.label}}</p>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- <div class="row m-0 p-0">
+          </div>
+        </div>
+        <div class="col-2 m-0 p-0"></div>
+      </div>
+      <div class="row m-0 p-0">
+        <form class="form-horizontal">
+          <div class="row m-0 p-0">
+            <div class="col-6 m-0 p-0">
+              <div class="form-group">
+                <label class="control-label pl-3 font-style-family" for="text"
+                  >Title<sup class="mandatory-color">*</sup></label
+                >
+                <div class="col-sm-12">
+                  <input
+                    type="text"
+                    [ngModelOptions]="{ standalone: true }"
+                    [(ngModel)]="title"
+                    class="form-control font-style-family"
+                    placeholder="Title"
+                    id="text"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-6 m-0 p-0">
+              <div class="form-group">
+                <label class="control-label pl-3 font-style-family" for="pwd"
+                  >First Name <sup class="mandatory-color">*</sup></label
+                >
+                <div class="col-sm-12">
+                  <input
+                    type="text"
+                    [ngModelOptions]="{ standalone: true }"
+                    [(ngModel)]="fName"
+                    class="form-control font-style-family"
+                    id="pwd"
+                    placeholder="Enter First Name"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row m-0 p-0">
+            <div class="col-6 m-0 p-0">
+              <div class="form-group">
+                <label class="control-label pl-3 font-style-family" for="text"
+                  >Last Name<sup class="mandatory-color">*</sup></label
+                >
+                <div class="col-sm-12">
+                  <input
+                    type="text"
+                    [ngModelOptions]="{ standalone: true }"
+                    [(ngModel)]="lName"
+                    class="form-control font-style-family"
+                    id="text"
+                    placeholder="Enter Last Name"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-6 m-0 p-0">
+              <div class="form-group">
+                <label class="control-label pl-3 font-style-family" for="pwd"
+                  >Telephone <sup class="mandatory-color">*</sup></label
+                >
+                <div class="col-sm-12">
+                  <input
+                    type="text"
+                    [ngModelOptions]="{ standalone: true }"
+                    [(ngModel)]="mobileNo"
+                    class="form-control font-style-family"
+                    id="pwd"
+                    placeholder="Enter Telephone Number"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row m-0 p-0">
+            <div class="col-6 m-0 p-0">
+              <div class="form-group">
+                <label class="control-label pl-3 font-style-family" for="email"
+                  >Email <sup class="mandatory-color">*</sup></label
+                >
+                <div class="col-sm-12">
+                  <input
+                    type="email"
+                    [ngModelOptions]="{ standalone: true }"
+                    [(ngModel)]="eMail"
+                    class="form-control font-style-family"
+                    id="email"
+                    placeholder="Enter Email"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-6 m-0 p-0">
+              <label class="control-label pl-3 font-style-family" for="password"
+                >Password</label
+              ><span style="color: red">*</span>
+              <div class="input-group">
+                <input
+                  [type]="fieldTextType ? 'text' : 'password'"
+                  [ngModelOptions]="{ standalone: true }"
+                  class="form-control font-style-family"
+                  [(ngModel)]="pWord"
+                  placeholder="Password"
+                />
+                <span
+                  class="input-group-text"
+                  id="basic-addon1"
+                  (click)="toggleFieldTextType()"
+                >
+                  <i
+                    class="fa"
+                    [ngClass]="{
+                      'fa-eye-slash': !fieldTextType,
+                      'fa-eye': fieldTextType
+                    }"
+                  ></i>
+                </span>
+              </div>
+            </div>
+            <div class="col-6 m-0 p-0">
+              <label class="control-label pl-3 font-style-family" for="file"
+                >Upload Company Image / Profile Image</label
+              ><span style="color: red">*</span>
+              <div class="input-group" style="width: 600px; margin-left: 13px">
+                <input
+                  type="file"
+                  [ngModelOptions]="{ standalone: true }"
+                  (change)="selectImage($event)"
+                  class="form-control font-style-family"
+                  [(ngModel)]="file"
+                  placeholder="Upload File Here"
+                />
+              </div>
+            </div>
+            <div class="col-6 m-0 p-0">
+              <label class="control-label pl-3 font-style-family"
+                >Is Bid Manager</label
+              >
+              <div
+                class="input-group"
+                style="
+                  display: flex;
+                  position: relative;
+                  top: 6px;
+                  left: -220px;
+                  flex-direction: row;
+                  flex-wrap: nowrap;
+                  justify-content: center;
+                  align-items: flex-start;
+                "
+                *ngFor="let data of managerList"
+              >
+                <input
+                  style="display: inline-block"
+                  type="radio"
+                  (click)="selectBidManager(data.label)"
+                  class="font-style-family"
+                  id="radio2"
+                  name="optradio"
+                  value="option2"
+                />
+                <p class="pl-2" style="margin-top: -6px">{{ data.label }}</p>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="row m-0 p-0">
                         <div class="col-3 m-0 p-0">
                             <p class="pt-3 pl-3 font-style-family">Is Bid Manager</p>
                         </div>
@@ -105,90 +203,153 @@
                         <div class="col-1 m-0 p-0">
                         </div>
                     </div> -->
-                    <div class="row m-0 p-0">
-                      <div class="col-5 pl-4">
-                          <p class="pt-3 font-style-family">Do You Want to Add a Collaborator:</p>
-                          <!-- <input class="form-check-input" type="checkbox" id="check1" name="option1" value="something"> -->
-                      </div>
-                      <div class="col-1 pt-3 m-0 p-0">
-                        <input class="form-check-input" (change)="onChangeCollabrator($event)" type="checkbox" id="check1" name="option1" value="something">
-                      </div>
-                      <div class="col-1 m-0 p-0"></div>
-                  </div>
-                  </form>
+          <div class="row m-0 p-0">
+            <div class="col-5 pl-4">
+              <p class="pt-3 font-style-family">
+                Do You Want to Add a Collaborator:
+              </p>
+              <!-- <input class="form-check-input" type="checkbox" id="check1" name="option1" value="something"> -->
             </div>
-            <div class="row m-0 p-0" *ngIf="bidFlag">
-                <form class="form-horizontal">
-                    <div class="row m-0 p-0">
-                        <div class="col-6 m-0 p-0">
-                            <div class="form-group">
-                                <label class="control-label pl-3 font-style-family" for="text">Title<sup class="mandatory-color">*</sup></label>
-                                <div class="col-sm-12">
-                                  <input type="text" class="form-control font-style-family" placeholder="Title" id="text">
-                                </div>
-                              </div>
-                        </div>
-                        <div class="col-6 m-0 p-0">
-                            <div class="form-group">
-                                <label class="control-label pl-3 font-style-family" for="pwd">First Name <sup class="mandatory-color">*</sup></label>
-                                <div class="col-sm-12">
-                                  <input type="text" class="form-control font-style-family" id="pwd" placeholder="Enter First Name">
-                                </div>
-                              </div>
-                        </div>
-                    </div>
-                    <div class="row m-0 p-0">
-                        <div class="col-6 m-0 p-0">
-                            <div class="form-group">
-                                <label class="control-label pl-3 font-style-family" for="text">Last Name<sup class="mandatory-color">*</sup></label>
-                                <div class="col-sm-12">
-                                  <input type="text" class="form-control font-style-family" id="text" placeholder="Enter Last Name">
-                                </div>
-                              </div>
-                        </div>
-                        <div class="col-6 m-0 p-0">
-                            <div class="form-group">
-                                <label class="control-label pl-3 font-style-family" for="pwd">Telephone <sup class="mandatory-color">*</sup></label>
-                                <div class="col-sm-12">
-                                  <input type="text" class="form-control font-style-family" id="pwd" placeholder="Enter Telephone Number">
-                                </div>
-                              </div>
-                        </div>
-                    </div>
-                    <div class="row m-0 p-0">
-                        <div class="col-6 m-0 p-0">
-                            <div class="form-group">
-                                <label class="control-label pl-3 font-style-family" for="email">Email <sup class="mandatory-color">*</sup></label>
-                                <div class="col-sm-12">
-                                  <input type="email" class="form-control font-style-family" id="email" placeholder="Enter Email">
-                                </div>
-                              </div>
-                        </div>
-                        <div class="col-6 m-0 p-0">
-                          <div class="form-group">
-                              <label class="control-label pl-3 font-style-family" for="password">Password <sup class="mandatory-color">*</sup></label>
-                              <div class="col-sm-12">
-                                <input type="password" class="form-control font-style-family" id="password" placeholder="Enter password">
-                              </div>
-                            </div>
-                      </div>
-                    </div>
-                  </form>
+            <div class="col-1 pt-3 m-0 p-0">
+              <input
+                class="form-check-input"
+                (change)="onChangeCollabrator($event)"
+                type="checkbox"
+                id="check1"
+                name="option1"
+                value="something"
+              />
             </div>
-            <div class="row mb-3 m-0 p-0">
-                <div class="col" style="text-align: left;">
-                  <button type="button" class="btn btn-dark font-style-family" routerLink="/address-details"
-                  style="color: white !important;">Previous</button>
-                    <!-- <button type="submit" class="btn btn-danger rounded-sm" routerLink="/address-details">
-                        Previous
-                    </button> -->
+            <div class="col-1 m-0 p-0"></div>
+          </div>
+        </form>
+      </div>
+      <div class="row m-0 p-0" *ngIf="bidFlag">
+        <form class="form-horizontal">
+          <div class="row m-0 p-0">
+            <div class="col-6 m-0 p-0">
+              <div class="form-group">
+                <label class="control-label pl-3 font-style-family" for="text"
+                  >Title<sup class="mandatory-color">*</sup></label
+                >
+                <div class="col-sm-12">
+                  <input
+                    type="text"
+                    class="form-control font-style-family"
+                    placeholder="Title"
+                    id="text"
+                  />
                 </div>
-                <div class="col" style="text-align: right;">
-                    <button type="submit" [disabled]="!fName || !lName || !eMail || !mobileNo || !title || !pWord" class="btn btn-primary rounded-sm ms-3 font-style-family" (click)="nextClick()">
-                        Next
-                    </button>
-                </div>
+              </div>
             </div>
+            <div class="col-6 m-0 p-0">
+              <div class="form-group">
+                <label class="control-label pl-3 font-style-family" for="pwd"
+                  >First Name <sup class="mandatory-color">*</sup></label
+                >
+                <div class="col-sm-12">
+                  <input
+                    type="text"
+                    class="form-control font-style-family"
+                    id="pwd"
+                    placeholder="Enter First Name"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row m-0 p-0">
+            <div class="col-6 m-0 p-0">
+              <div class="form-group">
+                <label class="control-label pl-3 font-style-family" for="text"
+                  >Last Name<sup class="mandatory-color">*</sup></label
+                >
+                <div class="col-sm-12">
+                  <input
+                    type="text"
+                    class="form-control font-style-family"
+                    id="text"
+                    placeholder="Enter Last Name"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-6 m-0 p-0">
+              <div class="form-group">
+                <label class="control-label pl-3 font-style-family" for="pwd"
+                  >Telephone <sup class="mandatory-color">*</sup></label
+                >
+                <div class="col-sm-12">
+                  <input
+                    type="text"
+                    class="form-control font-style-family"
+                    id="pwd"
+                    placeholder="Enter Telephone Number"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row m-0 p-0">
+            <div class="col-6 m-0 p-0">
+              <div class="form-group">
+                <label class="control-label pl-3 font-style-family" for="email"
+                  >Email <sup class="mandatory-color">*</sup></label
+                >
+                <div class="col-sm-12">
+                  <input
+                    type="email"
+                    class="form-control font-style-family"
+                    id="email"
+                    placeholder="Enter Email"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-6 m-0 p-0">
+              <div class="form-group">
+                <label
+                  class="control-label pl-3 font-style-family"
+                  for="password"
+                  >Password <sup class="mandatory-color">*</sup></label
+                >
+                <div class="col-sm-12">
+                  <input
+                    type="password"
+                    class="form-control font-style-family"
+                    id="password"
+                    placeholder="Enter password"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="row mb-3 m-0 p-0">
+        <div class="col" style="text-align: left">
+          <button
+            type="button"
+            class="btn btn-dark font-style-family"
+            routerLink="/new-user-register"
+            style="color: white !important"
+          >
+            Previous
+          </button>
         </div>
+        <div class="col" style="text-align: right">
+          <button
+            type="submit"
+            [disabled]="
+              !fName || !lName || !eMail || !mobileNo || !title || !pWord
+            "
+            class="btn btn-primary rounded-sm ms-3 font-style-family"
+            (click)="nextClick()"
+          >
+            Next
+          </button>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
