@@ -23,7 +23,10 @@
 .form-check-input {
   margin-right: 10px;
 }
-
+.mandatory-color {
+  color: red;
+  padding-left: 5px;
+}
 .info-text p {
   margin-bottom: 10px;
   font-size: 16px;

@@ -1,136 +1,227 @@
 <section class="w-100 m-0 p-0">
-  <div class="main" style="margin-top: 120px">
-    <div class="container">
-      <div class="row">
-        <!-- Registration Header -->
-        <div class="col-12 text-center mb-4">
-          <h4 class="user-head mb-4">New User Registration</h4>
+  <div class="w-100 m-0 p-0">
+    <div class="row justify-content-center wrap m-0 p-0" style="height: 100vh">
+      <div class="row m-0 p-0">
+        <div class="col-4 m-0 p-0"></div>
+        <div class="col-7 m-0 p-0">
+          <div class="d-flex">
+            <div class="w-100 m-0 p-0">
+              <h4
+                class="mb-2 p-3 font-style-family"
+                style="
+                  cursor: pointer;
+                  color: #4caf50;
+                  font-weight: 600;
+                  font-size: 20px;
+                "
+              >
+                Company's Address Details
+              </h4>
+            </div>
+          </div>
         </div>
-
-        <!-- Registration Options -->
-        <div class="col-md-12 text-center">
-          <div class="registration-options mb-4">
-            <!-- Option 1: Space -->
-            <div
-              class="option d-flex align-items-center mb-4 p-3 border rounded shadow-sm mx-auto"
-              style="max-width: 400px"
-            >
-              <img
-                src="../../assets/org-icon.png"
-                width="65"
-                alt="Space Icon"
-                class="me-3"
-              />
-              <div class="form-check">
-                <input
-                  type="radio"
-                  (change)="onChangeValue('space', $event)"
-                  [checked]="isSpace"
-                  class="form-check-input"
-                  id="radio1"
-                  name="optradio"
-                  value="space"
-                />
-                <label class="form-check-label" for="radio1">Space</label>
+        <div class="col-1 m-0 p-0"></div>
+      </div>
+      <div class="row m-0 p-0">
+        <form class="form-horizontal">
+          <div class="row m-0 p-0">
+            <div class="col-6 m-0 p-0">
+              <div class="form-group">
+                <label class="control-label pl-3 font-style-family" for="text"
+                  >Street<sup class="mandatory-color">*</sup></label
+                >
+                <div class="col-sm-12">
+                  <input
+                    type="text"
+                    [ngModelOptions]="{ standalone: true }"
+                    [(ngModel)]="street"
+                    class="form-control font-style-family"
+                    id="text"
+                    placeholder="Enter Street Name"
+                  />
+                </div>
               </div>
             </div>
-
-            <!-- Option 2: Avionics -->
-            <div
-              class="option d-flex align-items-center mb-4 p-3 border rounded shadow-sm mx-auto"
-              style="max-width: 400px"
-            >
-              <img
-                src="../../assets/client-icon.png"
-                width="65"
-                alt="Avionics Icon"
-                class="me-3"
-              />
-              <div class="form-check">
-                <input
-                  type="radio"
-                  (change)="onChangeValue('avionics', $event)"
-                  [checked]="isAvionics"
-                  class="form-check-input"
-                  id="radio2"
-                  name="optradio"
-                  value="avionics"
-                />
-                <label class="form-check-label" for="radio2">Avionics</label>
-              </div>
-            </div>
-
-            <!-- Option 3: Others -->
-            <div
-              class="option d-flex align-items-center mb-4 p-3 border rounded shadow-sm mx-auto"
-              style="max-width: 400px"
-            >
-              <img
-                src="../../assets/freelancer-icon.png"
-                width="65"
-                alt="Others Icon"
-                class="me-3"
-              />
-              <div class="form-check">
-                <input
-                  type="radio"
-                  (change)="onChangeValue('others', $event)"
-                  [checked]="isOthers"
-                  class="form-check-input"
-                  id="radio3"
-                  name="optradio"
-                  value="others"
-                />
-                <label class="form-check-label" for="radio3">Others</label>
+            <div class="col-6 m-0 p-0">
+              <div class="form-group">
+                <label class="control-label pl-3 font-style-family" for="pwd"
+                  >House Number <sup class="mandatory-color">*</sup></label
+                >
+                <div class="col-sm-12">
+                  <input
+                    type="text"
+                    [ngModelOptions]="{ standalone: true }"
+                    [(ngModel)]="hNumber"
+                    class="form-control font-style-family"
+                    id="pwd"
+                    placeholder="Enter House Number"
+                  />
+                </div>
               </div>
             </div>
           </div>
-
-          <!-- Registration Actions -->
-          <div class="form-group mb-4">
-            <button
-              type="button"
-              [disabled]="!radiocheck"
-              class="btn btn-secondary me-2"
-              (click)="startFreeTrial()"
-            >
-              Start Free Trial
-            </button>
-            <button
-              type="button"
-              [disabled]="!radiocheck"
-              class="btn btn-primary"
-              (click)="startFreeTrial()"
-            >
-              Complete Registration
-            </button>
+          <div class="row m-0 p-0">
+            <div class="col-6 m-0 p-0">
+              <div class="form-group">
+                <label class="control-label pl-3 font-style-family" for="text"
+                  >City<sup class="mandatory-color">*</sup></label
+                >
+                <div class="col-sm-12">
+                  <input
+                    type="text"
+                    [ngModelOptions]="{ standalone: true }"
+                    [(ngModel)]="city"
+                    class="form-control"
+                    id="text"
+                    placeholder="Enter City"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-6 m-0 p-0">
+              <div class="form-group">
+                <label class="control-label pl-3 font-style-family" for="pwd"
+                  >Postal Code <sup class="mandatory-color">*</sup></label
+                >
+                <div class="col-sm-12">
+                  <input
+                    type="text"
+                    [ngModelOptions]="{ standalone: true }"
+                    [(ngModel)]="postalCode"
+                    class="form-control font-style-family"
+                    id="pwd"
+                    placeholder="Postal Code"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
-
-          <!-- Sign-in Link -->
-          <div class="signin text-center mb-4">
-            <p class="mb-0">
-              <span>Already have an account?</span>
-              <a href="signin" routerLink="/signin" class="sign-in-link">
-                Sign In
-              </a>
-            </p>
+          <div class="row m-0 p-0">
+            <div class="col-6 m-0 p-0">
+              <div class="form-group">
+                <label class="control-label pl-3 font-style-family" for="text"
+                  >Country <sup class="mandatory-color">*</sup></label
+                >
+                <div class="col-sm-12">
+                  <input
+                    type="text"
+                    [ngModelOptions]="{ standalone: true }"
+                    [(ngModel)]="country"
+                    class="form-control font-style-family"
+                    id="text"
+                    placeholder="Enter Country"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-6 m-0 p-0">
+              <div class="form-group">
+                <label class="control-label pl-3 font-style-family" for="pwd"
+                  >Entity Fuctional Organization Chart(not Group)</label
+                >
+                <div class="col-sm-12">
+                  <input
+                    type="text"
+                    class="form-control font-style-family"
+                    id="pwd"
+                    placeholder="Entity Fuctional Organization Chart"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
-
-          <!-- Information Text -->
-          <div class="info-text text-start mb-4">
-            <p>
-              <strong>Start Free Trial:</strong> Try our platform with basic
-              features.
-            </p>
-            <p>
-              <strong>Complete Registration:</strong> Get full access for 6
-              months, then switch to the free version or opt for a paid plan.
-            </p>
-            <p>
-              Upgrade to the premium plan for €5 to enjoy complete AI features
-              for 12 months.
-            </p>
+          <div class="row m-0 p-0">
+            <div class="col-6 m-0 p-0">
+              <div class="form-group">
+                <label class="control-label pl-3 font-style-family" for="text"
+                  >Telephone</label
+                >
+                <div class="col-sm-12">
+                  <input
+                    type="text"
+                    class="form-control font-style-family"
+                    id="text"
+                    placeholder="Enter Telephone Number"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-6 m-0 p-0">
+              <div class="form-group">
+                <label class="control-label pl-3 font-style-family" for="pwd"
+                  >Fax</label
+                >
+                <div class="col-sm-12">
+                  <input
+                    type="text"
+                    class="form-control font-style-family"
+                    id="text"
+                    placeholder="Enter Fax Number"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
+          <div class="row m-0 p-0">
+            <div class="col-6 m-0 p-0">
+              <div class="form-group">
+                <label class="control-label pl-3 font-style-family" for="text"
+                  >Email</label
+                >
+                <div class="col-sm-12">
+                  <input
+                    type="email"
+                    class="form-control font-style-family"
+                    id="text"
+                    placeholder="Enter Email"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-6 m-0 p-0">
+              <div class="form-group">
+                <label class="control-label pl-3 font-style-family" for="pwd"
+                  >Website</label
+                >
+                <div class="col-sm-12">
+                  <input
+                    type="text"
+                    class="form-control font-style-family"
+                    id="text"
+                    placeholder="Enter Website"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="row mb-3 m-0 p-0">
+        <div class="col" style="text-align: left">
+          <button
+            type="button"
+            class="btn btn-dark font-style-family"
+            (click)="previousRoute()"
+            style="color: white !important"
+          >
+            Previous
+          </button>
+        </div>
+        <div class="col" style="text-align: right">
+          <button
+            type="submit"
+            class="btn btn-primary rounded-sm ms-3 font-style-family"
+            [disabled]="
+              !this.street ||
+              !this.hNumber ||
+              !this.city ||
+              !this.postalCode ||
+              !this.country
+            "
+            (click)="nextRoute()"
+          >
+            Next
+          </button>
         </div>
       </div>
     </div>

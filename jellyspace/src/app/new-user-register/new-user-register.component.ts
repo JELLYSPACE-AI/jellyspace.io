@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-user-register',
@@ -7,44 +7,41 @@ import { Router } from '@angular/router';
   styleUrls: ['./new-user-register.component.css'],
 })
 export class NewUserRegisterComponent implements OnInit {
-  radiocheck = false;
-  isSpace = false;
-  isAvionics = false;
-  isOthers = false;
-
-  constructor(private router: Router) {}
+  companyName: any;
+  public street: any;
+  public hNumber: any;
+  public city: any;
+  public postalCode: any;
+  public country: any;
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    const userType = localStorage.getItem('newuser');
-    if (userType === 'space') {
-      this.isSpace = true;
-      this.radiocheck = true;
-    } else if (userType === 'avionics') {
-      this.isAvionics = true;
-      this.radiocheck = true;
-    } else if (userType === 'others') {
-      this.isOthers = true;
-      this.radiocheck = true;
-    }
+    this.route.queryParams.subscribe((params) => {
+      console.log('params ', params['q']);
+      if (!this.companyName) {
+        this.companyName = params['q'];
+      }
+    });
   }
-
-  onChangeValue(val: string, event: Event): void {
-    this.radiocheck = (event.target as HTMLInputElement).checked;
-    localStorage.setItem('accountType', val);
-    this.updateUserType(val);
+  // (click)="previousRoute()" routerLink="/"
+  // (click)="nextRoute()" routerLink="/account-handler"
+  nextRoute() {
+    let params = { q: this.companyName };
+    localStorage.setItem('street', this.street);
+    localStorage.setItem('housenumber', this.hNumber);
+    localStorage.setItem('city', this.city);
+    localStorage.setItem('postalcode', this.postalCode);
+    localStorage.setItem('country', this.country);
+    this.router.navigate(['account-handler'], {
+      queryParams: params,
+      skipLocationChange: false,
+    });
   }
-
-  private updateUserType(type: string): void {
-    this.isSpace = type === 'space';
-    this.isAvionics = type === 'avionics';
-    this.isOthers = type === 'others';
-  }
-
-  startFreeTrial(): void {
-    this.router.navigate(['company-list']);
-  }
-
-  completeRegistration(): void {
-    // Complete registration logic
+  previousRoute() {
+    let params = { q: this.companyName };
+    this.router.navigate(['register-identification'], {
+      queryParams: params,
+      skipLocationChange: false,
+    });
   }
 }
